@@ -1,1 +1,1 @@
-# scanlator-api-restful
+# Scanlator API restful 
