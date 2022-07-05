@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 async function getID(req: Request, res: Response, database: any, categoria: string) {
-    const documento = await database.collection(categoria).doc(req.params.id).get()
+    const documento = await database.collection(categoria).doc(req.query.id).get()
     res.status(200).json(documento.data())
 }
 
