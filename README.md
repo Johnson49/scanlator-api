@@ -22,8 +22,6 @@
 
 :small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação)
 
-***
-
 ## Descrição do projeto
 A Scanlator API é um projeto que permite a consulta e criação de novels, mangás, manhwas e webtoons. Ideal para ser implementada em Scans de pequeno porte.
 
