@@ -34,7 +34,6 @@ A Scanlator API é um projeto que permite a consulta e criação de novels, mang
 * API RESTFUL
 * Clean Architecture 
 * MVC
-* DDD (domain driven design)
 
 
 ## Pré-requisitos :warning:
