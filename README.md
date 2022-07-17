@@ -1,4 +1,4 @@
-<h1 > Scanlator API </h1> </center>
+<h1 align="center"> Scanlator API </h1> </center>
 
 
 ![GitHub](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=yellow&style=for-the-badge)
