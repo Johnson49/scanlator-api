@@ -1,5 +1,5 @@
 import { Router } from "express";
-import vereficaCredenciais from "../middleware/verefica_credenciais";
+import vereficaCredenciais from "../middleware/verefica_credenciais.js";
 
 
 const rota_usuario = Router()

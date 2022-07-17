@@ -1,15 +1,15 @@
-import { Router } from "express";
-import metodoDelete from "../controllers/biblioteca/metodo_delete";
-import metodoGet from "../controllers/biblioteca/metodo_get";
-import metodoGetID from "../controllers/biblioteca/metodo_get_por_id";
-import metodoPatch from "../controllers/biblioteca/metodo_patch";
-import metodoPost from "../controllers/biblioteca/metodo_post";
-import database from "../database/config";
-import vereficaCategoria from "../middleware/verificacao_de_categoria";
+import Router  from "express";
+import metodoDelete from "../controllers/biblioteca/metodo_delete.js";
+import metodoGet from "../controllers/biblioteca/metodo_get.js";
+import metodoGetID from "../controllers/biblioteca/metodo_get_por_id.js";
+import metodoPatch from "../controllers/biblioteca/metodo_patch.js";
+import metodoPost from "../controllers/biblioteca/metodo_post.js";
+import database from "../database/config.js";
+import vereficaCategoria from "../middleware/verificacao_de_categoria.js";
 
-const router = Router()
+const rota = Router()
 
-router.get('/:tipo', vereficaCategoria, async (req, res) => {
+rota.get('/:tipo', vereficaCategoria, async (req, res) => {
     try {
         metodoGet(req, res, database)
     } catch (err) {
@@ -17,7 +17,7 @@ router.get('/:tipo', vereficaCategoria, async (req, res) => {
     }
 })
 
-router.get('/:tipo/:id', vereficaCategoria, async (req, res) => {
+rota.get('/:tipo/:id', vereficaCategoria, async (req, res) => {
     try {
         metodoGetID(req, res, database)
     } catch (err) {
@@ -26,7 +26,7 @@ router.get('/:tipo/:id', vereficaCategoria, async (req, res) => {
 })
 
 
-router.patch('/:tipo/:id', vereficaCategoria, async (req, res) => {
+rota.patch('/:tipo/:id', vereficaCategoria, async (req, res) => {
     try {
         metodoPatch(req, res, database)
     } catch (err) {
@@ -34,7 +34,7 @@ router.patch('/:tipo/:id', vereficaCategoria, async (req, res) => {
     }
 })
 
-router.delete('/:tipo/:id', vereficaCategoria, async (req, res) => {
+rota.delete('/:tipo/:id', vereficaCategoria, async (req, res) => {
     try {
         metodoDelete(req, res, database)
     } catch (err) {
@@ -44,7 +44,7 @@ router.delete('/:tipo/:id', vereficaCategoria, async (req, res) => {
 
 
 
-router.post('/adicionar-na-biblioteca/:tipo', async (req, res) => {
+rota.post('/adicionar-na-biblioteca/:tipo', async (req, res) => {
     try {
         metodoPost(req, res, database)
     } catch (err) {
@@ -52,4 +52,4 @@ router.post('/adicionar-na-biblioteca/:tipo', async (req, res) => {
     }
 })
 
-export default router
+export default rota;
