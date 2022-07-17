@@ -39,7 +39,6 @@ A Scanlator API é um projeto que permite a consulta e adição de novels, mang�
 * Node
 * Express
 * Firebase
-* TypeScript
 
 
 ## Instalação: 
