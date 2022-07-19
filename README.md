@@ -45,8 +45,7 @@ A Scanlator API é um projeto que permite a consulta e adição de novels, mang�
 
 ```javascript
 $ git clone https://github.com/Johnson49/scanlator-api
-
-$ npm install package.json
+$ npm install 
 ```  
 
 ## Como rodar a aplicação :arrow_forward:
