@@ -8,50 +8,73 @@
 ![GitHub](http://img.shields.io/static/v1?label=node&message=16.15.0&color=green&style=for-the-badge&logo=javascript)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Johnson49/scanlator-api)
 
-> Status do Projeto: :warning:
+> Status do Projeto:  :warning: Em desenvolvimento.
 
 ## Tópicos 
 
-:small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
+* [Informações gerais](#informações-gerais)
+* [Tecnologias](#tecnologias)
+* [Setup](#setup)
+* [EndPoints](#endpoints)
+* [Demonstrações](#demonstrações)
+* [Licença](#licença)
 
-:small_blue_diamond: [ Arquitetura do projeto](#arquitetura-do-projeto)
-
-:small_blue_diamond: [Pré-requisitos](#pré-requisitos)
-
-:small_blue_diamond: [Instalação](#instalação)
-
-:small_blue_diamond: [Como rodar a aplicação](#como-rodar-a-aplicação)
-
-## Descrição do projeto
+## Informações gerais
 A Scanlator API é um projeto que permite a consulta e adição de novels, mangás, manhwas e webtoons. Ideal para ser implementada em Scans de pequeno porte.
 
 
-
-## Arquitetura do projeto
-
-* API RESTFUL
-* Clean Architecture 
-* MVC
-
-
-## Pré-requisitos :warning:
+## Tecnologias :warning:
+O projeto é criado com:
 
 * Node
 * Express
 * Firebase
 
 
-## Instalação: 
+## Setup: 
+> Para rodar este projeto, clone localmente e depois instale as dependências com um gerenciador de sua preferência.
 
 ```javascript
 $ git clone https://github.com/Johnson49/scanlator-api
+$ cd scanlator-api
 $ npm install 
+$ npm run dev
 ```  
 
-## Como rodar a aplicação :arrow_forward:
-```javascript
-$ npm run dev
-```
+## EndPoints
+
+> As rotas são compostas pelo endereço base (localhost:port) mais o recurso que você deseja acessa.
+
+|Request|URL| Detalhes|
+|:-------:|:-----:|:------:|
+|GET | /biblioteca/:categoria | Busca todos os itens da categoria|
+|GET |  /biblioteca/:categoria?id= | Busca um item específico da categoria|
+|POST | /biblioteca/adicionar-na-biblioteca/:categoria | adiciona um item na sua respectiva categoria |
+| PATCH | /biblioteca/:categoria?id= | atualiza parte dos dados do item |
+| DELETE | /biblioteca/:categoria?id= | remove um item |
+
+
+|Lista de categoria|
+|:-------:|
+| Mangá|
+|Novel|
+|manhwa|
+|webcomic|
+
+## Demonstrações
+> Para melhor visulização, clique nas imagens.
+
+<p>
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/get.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/getID.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/post.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/patch.png"> 
+</p>
+<p>
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/delete.png"> 
+<p>
+
+
 
 ## Licença
 
