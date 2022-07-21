@@ -1,4 +1,4 @@
-function vereficaCategoria(req, res, next) {
+function categoriaDisponiveis(req, res, next) {
     const categoria = ["manga", "manhwa", "webcomic", "novel"]
     if (categoria.includes(req.params.tipo.toLowerCase())) {
         next()
@@ -7,4 +7,4 @@ function vereficaCategoria(req, res, next) {
     }
 }
 
-export default vereficaCategoria
+module.exports = categoriaDisponiveis
