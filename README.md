@@ -1,8 +1,5 @@
 <h1 align="center"> Scanlator API </h1> </center>
 
-
-![GitHub](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=yellow&style=for-the-badge)
-
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/Johnson49/scanlator-api/express)
 ![GitHub](https://img.shields.io/github/license/Johnson49/scanlator-api)
 ![GitHub](http://img.shields.io/static/v1?label=node&message=16.15.0&color=green&style=for-the-badge&logo=javascript)
