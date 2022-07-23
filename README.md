@@ -13,7 +13,8 @@
 * [Tecnologias](#tecnologias)
 * [Setup](#setup)
 * [EndPoints](#endpoints)
-* [Demonstrações](#demonstrações)
+* [Demonstrações da API](#demonstrações-da-api)
+* [Front end  da Aplicação](#front-end-da-aplicação)
 * [Licença](#licença)
 
 ## Informações gerais
@@ -26,6 +27,8 @@ O projeto é criado com:
 * Node
 * Express
 * Firebase
+* handlebars
+* bootstrap
 
 
 ## Setup: 
@@ -58,7 +61,7 @@ $ npm run dev
 |manhwa|
 |webcomic|
 
-## Demonstrações
+## Demonstrações da API
 > Para melhor visulização, clique nas imagens.
 
 <p>
@@ -69,6 +72,14 @@ $ npm run dev
 </p>
 <p>
  <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/delete.png"> 
+<p>
+
+
+## Front end da Aplicação
+> Para melhor visulização, clique nas imagens.
+
+<p>
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/layout_de_cadastro.png"> 
 <p>
 
 
