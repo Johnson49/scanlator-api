@@ -65,13 +65,13 @@ $ npm run dev
 > Para melhor visulização, clique nas imagens.
 
 <p>
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/get.png"> 
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/getID.png"> 
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/post.png"> 
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/patch.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/frontend/get.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/getID.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/post.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/patch.png"> 
 </p>
 <p>
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/delete.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/delete.png"> 
 <p>
 
 
@@ -79,7 +79,13 @@ $ npm run dev
 > Para melhor visulização, clique nas imagens.
 
 <p>
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/layout_de_cadastro.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_cadastro.png"> 
+ 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_da_biblioteca_categoria_manga.png"> 
+
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_atualizazao.png">
+
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_delete.png"> 
 <p>
 
 
