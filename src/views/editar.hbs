@@ -1,26 +1,28 @@
+{{#unless error}}
 <div class="container">
-
   <div class="col-md-7 py-4 container">
-    <form class="needs-validation" action="" method="post">
+    <form class="needs-validation" action="/biblioteca/atualizar" method="post">
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="titulo">Titulo</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Titulo da obra" name="titulo">
+
+          <input type="hidden" value="{{id}}" name="id">
+
+          <input type="text" class="form-control" id="titulo" value="{{item.titulo}}" placeholder="Titulo da obra" name="titulo">
         </div>
         <div class="col-md-6 mb-3">
           <label for="autor">Autor</label>
-          <input type="text" class="form-control" id="for" placeholder="Autor" name="autor">
+          <input type="text" class="form-control" id="for" placeholder="Autor" value="{{item.autor}}" name="autor">
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="lancamento">Ano de lançamento</label>
-          <input type="number" class="form-control" id="" placeholder="Ano de lançamento" name="ano_lancamento">
+          <input type="number" class="form-control" id="lancamento" value="{{item.lancamento}}" placeholder="Ano de lançamento" name="ano_lancamento">
         </div>
         <div class="col-md-6 mb-3">
           <label for="genero">Gênero(s)</label>
-          <input type="text" class="form-control" id="genero" placeholder="Gênero(s)" name="genero">
+          <input type="text" class="form-control" id="genero" value="{{item.genero}}" placeholder="Gênero(s)" name="genero">
         </div>
 
       </div>
@@ -29,7 +31,7 @@
 
         <label for="descricao">Descrição(s)</label>
         <div class="input-group">
-          <textarea class="form-control" rows="6" name="descricao"></textarea>
+          <textarea  value class="form-control" rows="6" name="descricao" ></textarea>
         </div>
       </div>
 
@@ -37,9 +39,9 @@
 
         <div class="form-group">
           <label for="categoria">Categoria</label>
-          <select class="form-control" id="categoria" name="categoria">
+          <select class="form-control" id="categoria" value="{{item.categoria}}" name="categoria">
             <option>----</option>
-            <option>Manga</option>
+            <option>manga</option>
             <option>Novel</option>
             <option>Webcomic</option>
             <option>Manhwa</option>
@@ -48,15 +50,16 @@
 
       </div>
 
+
       <div class="row">
         <div class="col-md-6 mb-3">
           <label for="artista">Artista(s)</label>
-          <input type="text" class="form-control" id="artista" placeholder="Artista(s)" name="artista">
+          <input type="text" class="form-control" value="{{item.artista}}" id="artista" placeholder="Artista(s)" name="artista">
         </div>
         <div class="col-md-6 mb-3">
           <div class="form-group">
             <label for="status">Status</label>
-            <select class="form-control" id="status" name="status">
+            <select class="form-control" id="status"  value="{{item.status}}" name="status">
               <option>----</option>
               <option>Em lançamento</option>
               <option>Finalizado</option>
@@ -77,14 +80,21 @@
 
 
 
-  <footer class="my-5 pt-5 text-muted text-center text-small">
+  {{!-- <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">©2022 Scanlator API</p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="#">Privacy</a></li>
       <li class="list-inline-item"><a href="#">Terms</a></li>
       <li class="list-inline-item"><a href="#">Support</a></li>
     </ul>
-  </footer>
-
-
+  </footer> --}}
 </div>
+
+{{else}}  
+  <div class="card bg-danger text-white container text-center p-1 mt-5">
+      <div class="card-body">
+          Houve um erro, tente mais tarde.
+      </div>
+  </div>
+
+{{/unless}}

@@ -1,36 +1,71 @@
 <div class="container">
+    <h1 class="text-center">Biblioteca</h1>
   <div class="py-5">
-    <h1>Biblioteca</h1>
+  
+
+    {{#if table}}
+
+
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">#ID</th>
-          <th scope="col">Titulo</th>
+          <th scope="col">Título</th>
+          <th scope="col"> Gênero</th>
           <th scope="col">Autor</th>
           <th scope="col">botao</th>
         </tr>
       </thead>
       <tbody>
+        {{#each itens}}
         <tr>
-          <th scope="row g-2">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
+          <th scope="row">{{titulo}}</th>
+          <td>{{genero}}</td>
+          <td> {{autor}} </td>
           <td>
             <div class="row">
-              <div class="col-4 col-md-3">
-
-                <a href="/biblioteca/editar-informacoes" class="w-100 btn btn-info">Editar</a>
-
+              <div class="col-4 col-md-6">
+                <form action="/biblioteca/editar-informacoes" method="post">
+                  <input type="hidden" name="id" value="{{id}}">
+                  <input type="hidden"  name="categoria" value="{{categoria}}">
+                  <button type="submit" class="w-100 btn btn-info form-group"> Editar</button>
+                </form>
               </div>
-              <div class="col-4 col-md-3">
-                <a href="#" class="w-100 btn btn-danger">Excluir</a>
-              </div>
-
+              <div class="col-4 col-md-6">
+                <button  data-bs-toggle="modal" data-bs-target="#delete_{{id}}" class="w-100 btn btn-danger form-group">Deletar</button>
             </div>
           </td>
         </tr>
-
+        <!-- Modal -->
+        <div class="modal fade" id="delete_{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">CONFIRMAÇÃO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body"> 
+                  Tem certeza que deseja deletar o título: <strong> {{titulo}}</strong>?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form action="/biblioteca/deletar" method="post">
+                <input type="hidden" name="id" value="{{id}}">
+                <input type="hidden" name="categoria" value="{{categoria}}">
+                <button type="submit" class="btn btn-danger">Sim, quero deletar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
       </tbody>
     </table>
+
+    {{else}}
+
+    <div class="card mt-4 text-center">
+      A categoria está vazia. Após adicionar alguns títulos, eles apareceram aqui.
+    </div>
+    {{/if}}
   </div>
 </div>

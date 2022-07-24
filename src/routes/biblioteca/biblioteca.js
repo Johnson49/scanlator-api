@@ -10,18 +10,30 @@ const vereficaCategoria = require("../../controllers/middleware/vereficaCategori
 const time = require("timers")
 
 
-router.get("/biblioteca/cadastro", (req, res) =>{
-    res.render('index', {titulo: "Cadastro"})
+router.get("/biblioteca/cadastro", (req, res) => {
+    res.render('index', { titulo: "Cadastro" })
 })
 
-router.get("/biblioteca", (req, res) =>{
+router.get("/biblioteca", (req, res) => {
     res.render('biblioteca')
 })
-router.get("/biblioteca/editar-informacoes", (req, res) =>{
-    res.render('editar')
+router.post("/biblioteca/editar-informacoes", async (req, res) => {
+    // res.render('editar')
+    const {id, categoria} = req.body
+
+
+        const documento = await database.collection(categoria).doc(id).get()
+        if(documento.exists){
+            res.render("editar", {error: false, id: documento.id, item: documento.data()})
+        } else{
+            res.render("editar", {error: true})
+        }
+  
+   
+
 })
 
-router.post("/biblioteca/adicionar", (req, res) =>{ 
+router.post("/biblioteca/adicionar", (req, res) => {
     const categoria = req.body.categoria.toLocaleLowerCase()
     try {
         create(req, res, database, categoria)
@@ -29,18 +41,119 @@ router.post("/biblioteca/adicionar", (req, res) =>{
         res.status(500).send("Um erro inesperado ocorreu")
     }
 })
-
-//---------
-
-router.get('/biblioteca/:tipo',vereficaCategoria, async (req, res) => {
+router.post("/biblioteca/atualizar", async (req, res) => {
+    const categoria = req.body.categoria.toLocaleLowerCase()
     try {
-        read(req, res, database)
+        const { id, titulo, genero, ano_lancamento, status,categoria, autor, descricao, artista } = req.body
+
+    const doc_atulizado = await database.collection(categoria).doc(id).update({
+        "titulo": titulo,
+        "autor": autor,
+        "artista": artista,
+        "genero": genero,
+        "descricao": descricao,
+        "lancamento": ano_lancamento,
+        "status": status,
+        "categoria": categoria
+    })
+
+        if(doc_atulizado){
+            res.redirect(`/biblioteca/${categoria}`)
+        }
+
     } catch (err) {
         res.status(500).send("Um erro inesperado ocorreu")
     }
 })
 
-router.get('/biblioteca/:tipo',vereficaCategoria, async (req, res) => {
+router.post('/biblioteca/deletar', async (req, res) => {
+    try {
+        const {id, categoria} = req.body
+        await database.collection(categoria).doc(id).delete()
+        const documento = await database.collection(categoria).doc(id).get()
+        if(!documento.exists){
+            res.redirect(`/biblioteca/${categoria}`)
+        }
+    } catch (err) {
+        res.status(500).send("Um erro inesperado ocorreu")
+    }
+})
+
+//aqui
+router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
+    try {
+        if (req.params.tipo.toLowerCase() === 'manga') {
+            const colecao = await database.collection("manga").get()
+            const lista = []
+
+            colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
+           
+            if (lista.length  > 0){
+                res.render("biblioteca", { table: true, itens: lista })
+            } else {
+                res.render("biblioteca", { table: false})
+            }
+            
+        } else if (req.params.tipo.toLowerCase() === 'manhwa') {
+
+            const colecao = await database.collection("manhwa").get()
+            const lista = []
+
+            colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
+            
+            if (lista.length  > 0){
+                res.render("biblioteca", { table: true, itens: lista })
+            } else {
+                res.render("biblioteca", { table: false})
+            }
+         
+        } else if (req.params.tipo.toLowerCase() === 'webcomic') {
+
+            const colecao = await database.collection("webcomic").get()
+            const lista = []
+
+            colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
+            
+            if (lista.length  > 0){
+                res.render("biblioteca", { table: true, itens: lista })
+            } else {
+                res.render("biblioteca", { table: false})
+            }
+        } else if (req.params.tipo.toLowerCase() === 'novel') {
+
+            const colecao = await database.collection("novel").get()
+            const lista = []
+
+            colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
+            
+            if (lista.length  > 0){
+                res.render("biblioteca", { table: true, itens: lista })
+            } else {
+                res.render("biblioteca", { table: false})
+            }
+        }
+
+        // if (itens.length > 0) {
+        //     res.render("biblioteca", { table: true, itens: itens })
+        // }
+        // else {
+        //     res.render("biblioteca", { table: false })}
+        
+    } catch (err) {
+        res.status(500).send("Um erro inesperado ocorreu")
+    }
+})
+//---------
+
+// router.get('/biblioteca/:tipo',vereficaCategoria, async (req, res) => {
+//     try {
+//         read(req, res, database)
+//     } catch (err) {
+//         res.status(500).send("Um erro inesperado ocorreu")
+//     }
+// })
+
+router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
     try {
         readID(req, res, database)
     } catch (err) {
@@ -49,13 +162,14 @@ router.get('/biblioteca/:tipo',vereficaCategoria, async (req, res) => {
 })
 
 
-router.patch('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
-    try {
-        update(req, res, database)
-    } catch (err) {
-        res.status(500).send("Um erro inesperado ocorreu")
-    }
-})
+// router.patch('/biblioteca/atualizar', vereficaCategoria, async (req, res) => {
+
+//     try {
+//         update(req, res, database)
+//     } catch (err) {
+//         res.status(500).send("Um erro inesperado ocorreu")
+//     }
+// })
 
 router.delete('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
     try {

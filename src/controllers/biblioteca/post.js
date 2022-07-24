@@ -3,13 +3,14 @@ async function post(req, res, database, colecao) {
     // const { titulo, genero, lancamento, status, autor, descricao, artista } = req.body
     const {titulo, autor, ano_lancamento, genero, descricao, categoria, artista, status} = req.body
     const novo_documento = {
-        "título": titulo,
+        "titulo": titulo,
         "autor": autor,
-        "artista(s)": artista,
-        "gênero(s)": genero,
-        "descrição": descricao,
-        "ano de lançamento": ano_lancamento,
+        "artista": artista,
+        "genero": genero,
+        "descricao": descricao,
+        "lancamento": ano_lancamento,
         "status": status,
+        "categoria": colecao
     }
     const doc = await database.collection(colecao).add(novo_documento)
     // meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro"]
@@ -32,8 +33,8 @@ async function post(req, res, database, colecao) {
 
 async function create(req, res, database, categoria) {
 
-    if (categoria === "manga") {
-        post(req, res, database, "mangas")
+    if (categoria === "manga" || "mangá") {
+        post(req, res, database, "manga")
     } else if (categoria === "manhwa") {
         post(req, res, database,"manhwa" )
     } else if (categoria === "webcomic") {
