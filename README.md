@@ -65,7 +65,7 @@ $ npm run dev
 > Para melhor visulização, clique nas imagens.
 
 <p>
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/frontend/get.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/get.png"> 
  <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/getID.png"> 
  <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/post.png"> 
  <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/api/patch.png"> 
