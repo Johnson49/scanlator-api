@@ -12,7 +12,7 @@
 * [Informações gerais](#informações-gerais)
 * [Tecnologias](#tecnologias)
 * [Setup](#setup)
-* [EndPoints](#endpoints)
+* [EndPoints da API](#endpoints-da-api)
 * [Demonstrações da API](#demonstrações-da-api)
 * [Front end  da Aplicação](#front-end-da-aplicação)
 * [Licença](#licença)
@@ -41,7 +41,7 @@ $ npm install
 $ npm run dev
 ```  
 
-## EndPoints
+## EndPoints da API
 
 > As rotas são compostas pelo endereço base (localhost:port) mais o recurso que você deseja acessa.
 
