@@ -1,0 +1,119 @@
+{{#unless error}}
+<div class="container">
+  <div class="col-md-7 container">
+      <div class="row g-1 mb-3">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header text-center p-0">Título</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.titulo }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+        
+          <div class="card">
+            <div class="card-header text-center p-0">Autor</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.autor }}</p>
+            </div>
+
+          </div>
+
+        </div>
+        </div>
+
+
+        <div class="row g-1 mb-2">
+          <div class="col ">
+          
+             <div class="card">
+            <div class="card-header text-center p-0">Ano de lançamento</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.lancamento }}</p>
+            </div>
+          </div>
+          </div>
+
+
+          <div class="col">
+  
+                 <div class="card">
+            <div class="card-header text-center p-0">Gênero(s)</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.genero }}</p>
+            </div>
+          </div>
+          </div>
+
+        </div>
+
+        <div class="row g-1 mb-2">
+
+          <div class="col-12">
+
+            <div class="card mb-3" >
+              <div class="card-header text-center">descrição</div>
+              <div class="card-body">
+                <p class="card-text"> {{item.descricao }}</p>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-12">
+       
+            <div class="card">
+            <div class="card-header text-center p-0">Categoria(s)</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.categoria }}</p>
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row g-1">
+
+          <div class="col mb-3">
+          
+              <div class="card">
+            <div class="card-header text-center p-0">Artista</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.artista }}</p>
+            </div>
+          </div>
+          </div>
+          <div class="col mb-3">
+         
+            <div class="card">
+            <div class="card-header text-center p-0">Status</div>
+            <div class="card-body p-1">
+              <p class="card-text text-center"> {{item.status }}</p>
+            </div>
+          </div>
+          </div>
+
+        </div>
+
+        <div class="row mt-3">
+          <a href="/biblioteca/{{item.categoria}}" class="btn btn-secondary "> Voltar</a>
+        </div>
+
+   
+  </div>
+
+
+</div>
+
+{{else}}
+<div class="card bg-danger text-white container text-center p-1 mt-5">
+  <div class="card-body">
+    Houve um erro, tente mais tarde.
+  </div>
+</div>
+
+{{/unless}}

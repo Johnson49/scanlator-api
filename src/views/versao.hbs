@@ -1,34 +1,22 @@
 <div class="container">
-    <h1 class="text-center">Biblioteca</h1>
-  <div class="py-5">
+  <div class="col-7 p-0 container">
   
-
     {{#if table}}
 
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Título</th>
-          <th scope="col"> Gênero</th>
-          <th scope="col">Autor</th>
-        </tr>
-      </thead>
-      <tbody>
         {{#each itens}}
-        <tr>
-          <th scope="row">
-              {{titulo}}
-            </th>
-          <td>{{genero}}</td>
-          <td> {{autor}} </td>
-          <td>
-            <div class="row">
+      <div class="row mb-3 ">
+      <div class="col">
+        <div class="card">
+           <h5 class="card-header text-center fs-4 display-6">{{titulo}}</h5>
+        <div class="card-body">
+        
+          <p class="card-text text-center  text-muted">{{descricao}}</p>
+          <div class="row">
               <div class="col ">
-                <form action="/biblioteca/informacoes" method="post">
+                <form action="/biblioteca/detalhamento" method="post">
                   <input type="hidden" name="id" value="{{id}}">
                   <input type="hidden"  name="categoria" value="{{categoria}}">
-                  <button type="submit" class="w-100 btn btn-info form-group"> Detalhes</button>
+                  <button type="submit" class="w-100 btn btn-info form-group"> Detalhamento</button>
                 </form>
               </div>
               <div class="col ">
@@ -41,9 +29,13 @@
               <div class="col">
                 <button  data-bs-toggle="modal" data-bs-target="#delete_{{id}}" class="w-100 btn btn-danger form-group">Deletar</button>
             </div>
-          </td>
-        </tr>
-        <!-- Modal -->
+            </div>
+        </div>
+      </div>
+      </div>
+      </div>
+
+        {{!-- --------- --}}
         <div class="modal fade" id="delete_{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -66,10 +58,12 @@
           </div>
         </div>
         {{/each}}
-      </tbody>
-    </table>
-
+        </div>
+        </div>
     
+   
+  
+    </div>
 
     {{else}}
 

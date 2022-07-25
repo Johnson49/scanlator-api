@@ -5,7 +5,6 @@ require('dotenv').config()
 const bodyParser = require("body-parser")
 const app = express()
 
-//config do handlebars
 
 app.engine("hbs", hbs.engine({
     extname: ".hbs",
@@ -21,11 +20,7 @@ app.get("/", (req, res)=>{
     res.render("home")
 })
 
-
-
 app.use(express.json())
 app.use(router )
-
-
 
 app.listen(process.env.PORT, ()=>{ console.log(`server running on port ${process.env.PORT}`)})

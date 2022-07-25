@@ -81,11 +81,15 @@ $ npm run dev
 <p>
  <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_cadastro.png"> 
  
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_da_biblioteca_categoria_manga.png"> 
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/biblioteca.png"> 
 
- <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_atualizazao.png">
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_atualizacao.png">
 
  <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_delete.png"> 
+<p>
+
+<p>
+ <img width="390" height="220" src="https://github.com/Johnson49/scanlator-api/blob/main/src/assets/frontend/tela_de_detalhamento.png"> 
 <p>
 
 

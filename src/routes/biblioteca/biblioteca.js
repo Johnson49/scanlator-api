@@ -1,26 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const database = require("../../database/config/config")
-const read = require("../../controllers/biblioteca/get")
-const readID = require("../../controllers/biblioteca/getPorID")
-const update = require("../../controllers/biblioteca/patch")
-const deleta = require("../../controllers/biblioteca/delete")
-const create = require("../../controllers/biblioteca/post")
 const vereficaCategoria = require("../../controllers/middleware/vereficaCategoria")
-const time = require("timers")
 
 
-router.get("/biblioteca/cadastro", (req, res) => {
-    res.render('index', { titulo: "Cadastro" })
+router.get("/biblioteca/cadastrar", (req, res) => {
+    res.render('cadastro', { titulo: "Cadastro" })
 })
 
-router.get("/biblioteca", (req, res) => {
-    res.render('biblioteca')
-})
 router.post("/biblioteca/editar-informacoes", async (req, res) => {
-    // res.render('editar')
+  
     const {id, categoria} = req.body
-
 
         const documento = await database.collection(categoria).doc(id).get()
         if(documento.exists){
@@ -28,9 +18,18 @@ router.post("/biblioteca/editar-informacoes", async (req, res) => {
         } else{
             res.render("editar", {error: true})
         }
-  
-   
+})
 
+router.post("/biblioteca/detalhamento", async (req, res) => {
+
+    const {id, categoria} = req.body
+
+        const documento = await database.collection(categoria).doc(id).get()
+        if(documento.exists){
+            res.render("info_completo", {error: false, id: documento.id, item: documento.data()})
+        } else{
+            res.render("info_completo", {error: true})
+        }
 })
 
 router.post("/biblioteca/adicionar", (req, res) => {
@@ -79,7 +78,6 @@ router.post('/biblioteca/deletar', async (req, res) => {
     }
 })
 
-//aqui
 router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
     try {
         if (req.params.tipo.toLowerCase() === 'manga') {
@@ -89,9 +87,9 @@ router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
             colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
            
             if (lista.length  > 0){
-                res.render("biblioteca", { table: true, itens: lista })
+                res.render("versao", { table: true, itens: lista })
             } else {
-                res.render("biblioteca", { table: false})
+                res.render("versao", { table: false})
             }
             
         } else if (req.params.tipo.toLowerCase() === 'manhwa') {
@@ -102,9 +100,9 @@ router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
             colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
             
             if (lista.length  > 0){
-                res.render("biblioteca", { table: true, itens: lista })
+                res.render("versao", { table: true, itens: lista })
             } else {
-                res.render("biblioteca", { table: false})
+                res.render("versao", { table: false})
             }
          
         } else if (req.params.tipo.toLowerCase() === 'webcomic') {
@@ -115,9 +113,9 @@ router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
             colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
             
             if (lista.length  > 0){
-                res.render("biblioteca", { table: true, itens: lista })
+                res.render("versao", { table: true, itens: lista })
             } else {
-                res.render("biblioteca", { table: false})
+                res.render("versao", { table: false})
             }
         } else if (req.params.tipo.toLowerCase() === 'novel') {
 
@@ -127,9 +125,9 @@ router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
             colecao.forEach((doc) => {lista.push({ id: doc.id, ...doc.data() })})
             
             if (lista.length  > 0){
-                res.render("biblioteca", { table: true, itens: lista })
+                res.render("versao", { table: true, itens: lista })
             } else {
-                res.render("biblioteca", { table: false})
+                res.render("versao", { table: false})
             }
         }
 
@@ -143,54 +141,6 @@ router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
         res.status(500).send("Um erro inesperado ocorreu")
     }
 })
-//---------
-
-// router.get('/biblioteca/:tipo',vereficaCategoria, async (req, res) => {
-//     try {
-//         read(req, res, database)
-//     } catch (err) {
-//         res.status(500).send("Um erro inesperado ocorreu")
-//     }
-// })
-
-router.get('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
-    try {
-        readID(req, res, database)
-    } catch (err) {
-        res.status(500).send("Um erro inesperado ocorreu")
-    }
-})
-
-
-// router.patch('/biblioteca/atualizar', vereficaCategoria, async (req, res) => {
-
-//     try {
-//         update(req, res, database)
-//     } catch (err) {
-//         res.status(500).send("Um erro inesperado ocorreu")
-//     }
-// })
-
-router.delete('/biblioteca/:tipo', vereficaCategoria, async (req, res) => {
-    try {
-        deleta(req, res, database)
-    } catch (err) {
-        res.status(500).send("Um erro inesperado ocorreu")
-    }
-})
-
-
-
-// router.post('/biblioteca/adicionar-na-biblioteca/:tipo', vereficaCategoria, async (req, res) => {
-//     try {
-//         create(req, res, database)
-//     } catch (err) {
-//         res.status(500).send("Um erro inesperado ocorreu")
-//     }
-// })
-
-
-
 
 
 module.exports = router

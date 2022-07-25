@@ -31,7 +31,7 @@
 
         <label for="descricao">Descrição(s)</label>
         <div class="input-group">
-          <textarea  value class="form-control" rows="6" name="descricao" ></textarea>
+          <input  value="{{item.descricao}}" class="form-control" name="descricao" ></input>
         </div>
       </div>
 
@@ -39,13 +39,8 @@
 
         <div class="form-group">
           <label for="categoria">Categoria</label>
-          <select class="form-control" id="categoria" value="{{item.categoria}}" name="categoria">
-            <option>----</option>
-            <option>manga</option>
-            <option>Novel</option>
-            <option>Webcomic</option>
-            <option>Manhwa</option>
-          </select>
+          <input class="form-control" id="categoria" value="{{item.categoria}}" name="categoria">
+          </input>
         </div>
 
       </div>
@@ -59,19 +54,20 @@
         <div class="col-md-6 mb-3">
           <div class="form-group">
             <label for="status">Status</label>
-            <select class="form-control" id="status"  value="{{item.status}}" name="status">
-              <option>----</option>
-              <option>Em lançamento</option>
-              <option>Finalizado</option>
-              <option>Abandonado</option>
-              <option>Em hiato</option>
-            </select>
+            <input class="form-control" id="status"  value="{{item.status}}" name="status">
+            </input>
           </div>
         </div>
 
+      <div class="mt-3 row  p-0 ">
+          <div class="col p-0 ms-4 me-5">
+            <a href="/biblioteca/{{item.categoria}}" class=" w-100 btn btn-secondary btn-lg btn-block"> Voltar</a>
+          </div>
 
-        <button type="submit" style="margin-top: 15px; font-size: large;"
-          class="btn btn-warning btn-lg btn-block">Salvar alterações</button>
+     <div class="col p-0 ms-5">
+        <button type="submit"  class=" w-100 btn btn-warning btn-lg btn-block">Salvar alterações</button>
+          </div>
+      </div>
 
       </div>
 
