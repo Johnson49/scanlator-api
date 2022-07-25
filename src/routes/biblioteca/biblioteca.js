@@ -5,7 +5,7 @@ const vereficaCategoria = require("../../controllers/middleware/vereficaCategori
 
 
 router.get("/biblioteca/cadastrar", (req, res) => {
-    res.render('cadastro', { titulo: "Cadastro" })
+    res.render('cadastro')
 })
 
 router.post("/biblioteca/editar-informacoes", async (req, res) => {
