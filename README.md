@@ -22,7 +22,7 @@ A Scanlator API é um projeto que permite a consulta e adição de novels, mang�
 
 
 ## Tecnologias :warning:
-O projeto é criado com:
+> O projeto é criado com:
 
 * Node
 * Express
