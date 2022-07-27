@@ -1,15 +1,16 @@
 const express = require("express")
 const router = require("./routes/biblioteca/biblioteca")
 const hbs = require("express-handlebars")
-require('dotenv').config()
 const bodyParser = require("body-parser")
 const app = express()
+require('dotenv').config()
 
 
 app.engine("hbs", hbs.engine({
     extname: ".hbs",
     defaultLayout: 'main'
 }));
+
 app.set("view engine", "hbs"); 
 app.set('views',__dirname+"\\views");
 
