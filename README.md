@@ -49,9 +49,9 @@ $ npm run dev
 |:-------:|:-----:|:------:|
 |GET | /biblioteca/:categoria | Busca todos os itens da categoria|
 |GET |  /biblioteca/:categoria?id= | Busca um item específico da categoria|
-|POST | /biblioteca/adicionar-na-biblioteca/:categoria | adiciona um item na sua respectiva categoria |
-| PATCH | /biblioteca/:categoria?id= | atualiza parte dos dados do item |
-| DELETE | /biblioteca/:categoria?id= | remove um item |
+|POST | /biblioteca/adicionar-na-biblioteca/:categoria | Adiciona um item na sua respectiva categoria |
+| PATCH | /biblioteca/:categoria?id= | Atualiza parte dos dados do item |
+| DELETE | /biblioteca/:categoria?id= | Remove um item |
 
 
 |Lista de categoria|
